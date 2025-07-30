@@ -31,6 +31,7 @@
 			vo.setAge(rs.getInt(4));
 			
 			users.add(vo);
+			
 		}
 		
 		rs.close();

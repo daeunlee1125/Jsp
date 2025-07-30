@@ -32,8 +32,6 @@
 			user1.setHp(rs.getString(3));
 			user1.setAge(rs.getInt(4));
 		}
-
-		
 		
 		
 		rs.close();
@@ -57,7 +55,7 @@
 		<a href="../jdbc.jsp">처음으로</a>
 		<a href="./list.jsp">목록이동</a>
 		
-		<form action="/ch05/customer/proc/modify.jsp" method="post">
+		<form action="/ch05/user1/proc/modify.jsp" method="post">
 			<table border="1">
 				<tr>
 					<td>아이디</td>

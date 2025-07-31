@@ -52,4 +52,9 @@
   	<url-pattern>/welcome.do</url-pattern> <!-- 필터링을 적용한다! -->
   </filter-mapping>
   
+  <!-- 리스너 등록 -->
+  <listener>
+  	<listener-class>sub3.MyContextListener</listener-class>
+  </listener>
+  
 </web-app>

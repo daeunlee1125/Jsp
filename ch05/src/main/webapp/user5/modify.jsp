@@ -17,9 +17,20 @@
 					<td><input readonly type="text" name="name" placeholder="이름 입력"></td>
 				</tr>
 				<tr>
-					<td><select name="gender"></select></td>
+					<td><select name="gender">
+						<option>F</option>
+						<option>M</option>
+					</select></td>
 				</tr>
-			
+				<tr>
+					<td><input type="number" name="age" placeholder="나이 입력"></td>
+				</tr>
+				<tr>
+					<td><input type="text" name="addr" placeholder="주소 입력"></td>
+				</tr>
+				<tr>
+					<td><input type="submit" value="수정하기"></td>
+				</tr>
 			</table>
 		</form>
 	</body>

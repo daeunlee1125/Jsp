@@ -14,7 +14,7 @@ public class DeleteController extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
 	User1Service service = User1Service.INSTANCE;
-	
+	 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		

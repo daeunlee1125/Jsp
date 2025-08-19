@@ -105,7 +105,16 @@ public class CustomerDAO extends DBHelper {
 	public void insert(CustomerDTO dto) {
 		try {
 			conn = getConnection();
+			psmt = conn.prepareStatement(Sql.INSERT_CUSTOMER);
+			psmt.setString(1, dto.getC_no());
+			psmt.setString(2, dto.getC_name());
+			psmt.setInt(3, dto.getC_dist());
+			psmt.setString(4, dto.getC_phone());
+			psmt.setString(5, dto.getC_addr());
 			
+			psmt.executeUpdate();
+			
+			closeAll();
 			
 		} catch(Exception e) {
 			e.printStackTrace();

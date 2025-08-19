@@ -34,6 +34,11 @@ public class CustomerDTO {
 	public void setC_dist(int c_dist) {
 		this.c_dist = c_dist;
 	}
+	public void setC_dist(String c_dist) {
+		if (c_dist!=null) {
+			this.c_dist = Integer.parseInt(c_dist);
+		}
+	}
 	public String getC_phone() {
 		return c_phone;
 	}

@@ -10,29 +10,23 @@
 		<h3>계좌등록</h3>
 		
 		<a href="/ErdBank">처음으로</a>
-		<a href="/ErdBank/lecture/list.do">목록이동</a>
+		<a href="/ErdBank/account/list.do">목록이동</a>
 		
-		<form action="#" method="post">
+		
+		<form action="/ErdBank/account/register.do" method="post">
 			<table border="1">
 				<tr>
-					<td>아이디</td>
-					<td><input type="text" name="custid" placeholder="아이디 입력"></td>
+					<td>계좌번호</td>
+					<td><input type="text" name="a_no" placeholder="101-11-OOOO"></td>
 				</tr>
 				<tr>
-					<td>이름</td>
-					<td><input type="text" name="name" placeholder="이름 입력"></td>
-				</tr>
-				<tr>
-					<td>휴대폰</td>
-					<td><input type="text" name="hp" placeholder="휴대폰 입력(- 포함)"></td>
-				</tr>
-				<tr>
-					<td>주소</td>
-					<td><input type="text" name="addr" placeholder="주소 입력"></td>
-				</tr>
-				<tr>
-					<td>등록일</td>
-					<td><input type="date" name="rdate" placeholder="날짜 입력"></td>
+					<td>계좌분류</td>
+					<td>
+						<select name="a_item_name">
+							<option>자유저축예금</option>
+							<option>정기저축예금</option>
+						</select>
+					</td>
 				</tr>
 				<tr>
 					<td colspan="2" align="right">

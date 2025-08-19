@@ -10,13 +10,16 @@ public enum AccountService {
 	
 	private AccountDAO dao = AccountDAO.getInstance();
 	
-	public AccountDTO findById(String a_no) {
-		return dao.select(a_no);
+	public AccountDTO findById(String a_c_no) {
+		return dao.select(a_c_no);
 	}
 	public AccountDTO findByIdAndName(String a_no, String a_c_name) {
 		return dao.select(a_no, a_c_name);
 	}
 	
+	public AccountDTO findByAcc(String a_no) {
+		return dao.selectAcc(a_no);
+	}
 	public List<AccountDTO> findAll(){
 		return dao.selectAll();
 	}
@@ -25,8 +28,11 @@ public enum AccountService {
 		dao.insert(dto);
 	}
 	
-	public void modify(AccountDTO dto) {
-		dao.update(dto);
+	public void deposit(AccountDTO dto, int t_amount) {
+		dao.plusBal(dto, t_amount);
+	}
+	public void withdraw(AccountDTO dto, int t_amount) {
+		dao.minusBal(dto, t_amount);
 	}
 	
 	public void remove(String a_no) {

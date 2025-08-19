@@ -30,6 +30,7 @@ public class LoginController extends HttpServlet{
 			HttpSession session = req.getSession();
 			session.setAttribute("sessCustomer", customerDTO);
 			
+			
 			// 이동
 			resp.sendRedirect("/ErdBank/?login=success");
 			

@@ -23,8 +23,8 @@ public enum TransactionService {
 		dao.insertAndUpdate(dto);
 	}
 	
-	public void modify(TransactionDTO dto) {
-		dao.update(dto);
+	public void addTrans(TransactionDTO dto) {
+		dao.insert(dto);
 	}
 	
 	public void remove(String t_no) {

@@ -23,11 +23,11 @@
 			<form action="/ErdBank/customer/login.do" method="post">
 				<table border="1">
 					<tr>
-						<td>주민번호</td>
+						<td style="padding:5px;">주민번호</td>
 						<td><input type="text" name="c_no" placeholder="주민번호 입력"></td>
 					</tr>
 					<tr>
-						<td>이름</td>
+						<td style="padding:5px;">이름</td>
 						<td><input type="text" name="c_name" placeholder="이름 입력"></td>
 					</tr>
 					<tr>
@@ -36,6 +36,42 @@
 						</td>
 					</tr>
 				
+				</table>
+			</form>
+			<h4>회원가입</h4>
+			<form action="/ErdBank/customer/register.do" method="post">
+				<table border="1">
+					<tr>
+						<td style="padding:5px;">주민번호</td>
+						<td><input type="text" name="c_no" placeholder="주민번호 입력"></td>
+					</tr>
+					<tr>
+						<td style="padding:5px;">이름</td>
+						<td><input type="text" name="c_name" placeholder="이름 입력"></td>
+					</tr>
+					<tr>
+						<td style="padding:5px;">고객 타입</td>
+						<td>
+							<select name="c_dist">
+								<option value="1">개인</option>
+								<option value="2">기업</option>
+							</select>
+						</td>
+					</tr>
+		
+					<tr>
+						<td style="padding:5px;">전화번호</td>
+						<td><input type="text" name="c_phone" placeholder="휴대폰 번호(-포함)"></td>
+					</tr>
+					<tr>
+						<td style="padding:5px;">주소</td>
+						<td><input type="text" name="c_addr" placeholder="주소 입력"></td>
+					</tr>
+					<tr>
+						<td colspan="2" align="right">
+							<input type="submit" value="회원가입">
+						</td>
+					</tr>
 				</table>
 			</form>
 		</c:if>

@@ -32,10 +32,14 @@ public class TransactionDAO extends DBHelper{
 			rs = stmt.executeQuery(sql);
 			
 			while (rs.next()) {
-				TransactionDTO dto = new TransactionDTO();
+				TransactionDTO trdto = new TransactionDTO();
+				trdto.setT_no(rs.getInt(1));
+				trdto.setT_a_no(rs.getString(2));
+				trdto.setT__dist(rs.getInt(3));
+				trdto.setT_amount(rs.getInt(4));
+				trdto.setT_datetime(rs.getString(5));
 				
-				
-				dtoList.add(dto);
+				dtoList.add(trdto);
 			}
 			
 			closeAll();
@@ -70,6 +74,29 @@ public class TransactionDAO extends DBHelper{
 			psmt2.executeUpdate();
 			
 			conn.commit(); // psmt 세 개가 하나의 작업으로 처리된다!
+			
+			closeAll();
+			
+		} catch(Exception e) {
+			e.printStackTrace();
+			try {
+				conn.rollback();
+			} catch(SQLException ex) {
+				ex.printStackTrace();
+			}
+		}
+	}
+	
+	public void insert(TransactionDTO dto) {
+		try {
+			conn = getConnection();
+			
+			psmt = conn.prepareStatement(Sql.INSERT_TRANSACTION);
+			psmt.setString(1, dto.getT_a_no());
+			psmt.setInt(2, dto.getT__dist());
+			psmt.setInt(3, dto.getT_amount());
+			psmt.executeUpdate();
+			
 			
 			closeAll();
 			

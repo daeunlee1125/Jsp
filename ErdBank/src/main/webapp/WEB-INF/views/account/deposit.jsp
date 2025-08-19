@@ -16,15 +16,15 @@
 			<table border="1">
 				<tr>
 					<td>계좌번호</td>
-					<td><input type="text" name="a_no" placeholder="101-21"></td>
+					<td><input type="text" name="a_no" value="${account.a_no}"></td>
 				</tr>
 				<tr>
 					<td>입금주</td>
-					<td><input type="text" name="c_name" placeholder="으앙"></td>
+					<td><input type="text" name="c_name" placeholder="이름 입력"></td>
 				</tr>
 				<tr>
 					<td>입금액</td>
-					<td><input type="number" name="t_amount" placeholder="100"></td>
+					<td><input type="number" name="t_amount" placeholder="10000"></td>
 				</tr>
 				
 				<tr>

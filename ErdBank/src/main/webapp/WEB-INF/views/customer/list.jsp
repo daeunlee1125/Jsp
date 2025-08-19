@@ -18,13 +18,12 @@
 		<h3>고객목록</h3>
 		
 		<a href="/ErdBank">처음으로</a>
-		<a href="/ErdBank/customer/register.do">등록하기</a>
 		
 		<table border="1">
 			<tr>
 				<th>주민번호</th>
 				<th>이름</th>
-				<th>타입</th>
+				<th>고객분류</th>
 				<th>전화번호</th>
 				<th>주소</th>
 				<th>관리</th>
@@ -36,10 +35,12 @@
 				<td>${dto.c_dist }</td> 
 				<td>${dto.c_phone }</td> 
 				<td>${dto.c_addr }</td>
+				<c:if test="${sessCustomer.c_no eq dto.c_no}">
 				<td>
 					<a href="#">수정</a>
-					<a href="#">삭제</a>
-				<td>
+					<a href="#">탈퇴</a>
+				</td>
+				</c:if>
 			</tr>
 			</c:forEach> 
 		</table>

@@ -18,7 +18,7 @@
 		<h3>계좌목록</h3>
 		
 		<a href="/ErdBank">처음으로</a>
-		<a href="/ErdBank/account/register.do">등록하기</a>
+		<a href="/ErdBank/account/register.do">계좌개설</a>
 		
 		<table border="1">
 			<tr>

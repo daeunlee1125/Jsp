@@ -12,35 +12,32 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>강좌목록</title>
+		<title>거래목록</title>
 	</head>
 	<body>
-		<h3>강좌목록</h3>
+		<h3>거래내역</h3>
 		
 		<a href="/ErdBank">처음으로</a>
-		<a href="/ErdBank/transaction/register.do">등록하기</a>
 		
 		<table border="1">
 			<tr>
-				<th>강좌번호</th>
-				<th>강좌명</th>
-				<th>학점</th>
-				<th>시간</th>
-				<th>강의실</th>
-				<th>관리</th>
+				<th>거래번호</th>
+				<th>계좌주</th>
+				<th>분류</th>
+				<th>거래금액</th>
+				<th>거래일자</th>
+
 			</tr>
-			<c:forEach var ="dto" items="${dtoList}">
+			<c:forEach var ="dto" items="${dtoList}"> 
 			<tr>
-				<td>${dto.lecNo}</td>
-				<td>${dto.lecName}</td>
-				<td>${dto.lecCredit}</td> 
-				<td>${dto.lecTime}</td> 
-				<td>${dto.lecClass }</td>
-				<td>
-					<a href="/ErdCollege/register/request.do?lecNo=${dto.lecNo}">수강신청</a>
-				</td>
+				<td>${dto.t_no}</td>
+				<td>${dto.t_a_no }</td>
+				<td>${dto.t__dist }</td> 
+				<td>${dto.t_amount }</td> 
+				<td>${dto.t_datetime }</td>
+
 			</tr>
-			</c:forEach> 
+			</c:forEach>
 		</table>
 	
 	</body>

@@ -42,7 +42,7 @@
 				<td>
 					<a href="/ErdBank/account/deposit.do">입금</a>
 					<a href="/ErdBank/account/withdraw.do">출금</a>
-					<a href="/ErdBank/account/show.do">조회</a>
+					<a href="/ErdBank/account/show.do?a_no=${acc.a_no}">조회</a>
 					<a href="/ErdBank/account/transfer.do">이체</a>
 				</td>
 				</c:if>

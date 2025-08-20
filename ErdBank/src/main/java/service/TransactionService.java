@@ -13,6 +13,10 @@ public enum TransactionService {
 	public TransactionDTO findById(String t_no) {
 		return dao.select(t_no);
 	}
+	
+	public List<TransactionDTO> findbyAccNo(String a_no){
+		return dao.selectbyAno(a_no);
+	}
 
 	
 	public List<TransactionDTO> findAll(){

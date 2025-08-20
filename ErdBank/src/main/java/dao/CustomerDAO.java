@@ -77,7 +77,7 @@ public class CustomerDAO extends DBHelper {
 		
 		try {
 			conn = getConnection();
-			String sql = "SELECT * from BANK_CUSTOMER";
+			String sql = "SELECT c_no, c_name, c_dist, c_phone, c_addr from BANK_CUSTOMER where deleted_yn='N'";
 			stmt = conn.createStatement();
 			rs = stmt.executeQuery(sql);
 			
@@ -121,9 +121,45 @@ public class CustomerDAO extends DBHelper {
 		}
 	}
 	
-	public void update(CustomerDTO dto) {}
+	public void update(CustomerDTO dto) {
+		try {
+			conn = getConnection();
+			psmt = conn.prepareStatement(Sql.UPDATE_CUSTOMER);
+			psmt.setString(1, dto.getC_name());
+			psmt.setString(2, dto.getC_phone());
+			psmt.setString(3, dto.getC_addr());
+			psmt.setString(4, dto.getC_no());
+			
+			psmt.executeUpdate();
+			
+			closeAll();
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+	}
 	
-	public void delete(String c_no) {}
+	public void delete(String c_no) {
+		try {
+			conn = getConnection();
+			String sql = "UPDATE BANK_CUSTOMER SET deleted_yn='Y' WHERE c_no=?";
+			String sql2 = "UPDATE BANK_ACCOUNT SET deleted_acc='Y' where A_C_NO=?";
+			
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, c_no);
+			
+			psmt2 = conn.prepareStatement(sql2);
+			psmt2.setString(1, c_no);
+			
+			psmt2.executeUpdate();
+			psmt.executeUpdate();
+			
+			closeAll();
+		}catch (Exception e) {
+			e.printStackTrace();
+			// TODO: handle exception
+		}
+	}
 }
 
 

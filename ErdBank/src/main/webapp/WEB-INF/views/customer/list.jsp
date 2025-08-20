@@ -37,13 +37,25 @@
 				<td>${dto.c_addr }</td>
 				<c:if test="${sessCustomer.c_no eq dto.c_no}">
 				<td>
-					<a href="#">수정</a>
-					<a href="#">탈퇴</a>
+					<a href="/ErdBank/customer/modify.do"><button>수정</button></a>
+					<button onclick="openPopup()">탈퇴</button>
 				</td>
 				</c:if>
 			</tr>
 			</c:forEach> 
 		</table>
-	
+		
+		<script>
+			function openPopup() {
+				var popupWidth = 240;
+				var popupHeight = 120;
+				var popupLeft = (window.screen.width - popupWidth) / 2;
+	            var popupTop = (window.screen.height - popupHeight) / 2;
+	            var popupOptions = "width=" + popupWidth + ",height=" + popupHeight + ",left=" + popupLeft + ",top=" + popupTop;
+	            
+	            window.open("/ErdBank/customer/deletePopup.do?c_no=${sessCustomer.c_no}", "popupWindow", popupOptions);
+	            
+			}
+		</script>
 	</body>
 </html>

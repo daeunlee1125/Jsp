@@ -52,6 +52,34 @@ public class TransactionDAO extends DBHelper{
 		return dtoList;
 	}
 	
+	public List<TransactionDTO> selectbyAno(String t_a_no){
+		List<TransactionDTO> dtoList = new ArrayList<TransactionDTO>();
+		
+		try {
+			conn = getConnection();
+			String sql = "SELECT t_datetime, t__dist, t_amount FROM BANK_TRANSACTION WHERE t_a_no=?";
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, t_a_no);
+			rs = psmt.executeQuery();
+			
+			while (rs.next()) {
+				TransactionDTO dto = new TransactionDTO();
+				dto.setT_datetime(rs.getString(1));
+				dto.setT__dist(rs.getInt(2));
+				dto.setT_amount(rs.getInt(3));
+				
+				dtoList.add(dto);
+			}
+			
+			closeAll();
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return dtoList;
+		
+	}
+	
 	public void insertAndUpdate(TransactionDTO dto) {
 		try {
 			conn = getConnection();

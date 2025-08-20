@@ -9,7 +9,14 @@ public class CustomerDTO {
 	
 	// 추가필드
 	private String c_a_no;
+	private String deleted_yn;
 	
+	public String getDeleted_yn() {
+		return deleted_yn;
+	}
+	public void setDeleted_yn(String deleted_yn) {
+		this.deleted_yn = deleted_yn;
+	}
 	public String getC_a_no() {
 		return c_a_no;
 	}

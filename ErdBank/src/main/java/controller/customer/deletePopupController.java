@@ -2,18 +2,16 @@ package controller.customer;
 
 import java.io.IOException;
 
-import dto.CustomerDTO;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import jakarta.servlet.http.HttpSession;
 import service.CustomerService;
 
-@WebServlet("/customer/delete.do")
-public class deleteController extends HttpServlet {
+@WebServlet("/customer/deletePopup.do")
+public class deletePopupController extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
 	CustomerService cservice = CustomerService.INSTANCE;
@@ -21,24 +19,10 @@ public class deleteController extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String c_no = req.getParameter("c_no");
-		cservice.remove(c_no);
+		req.setAttribute("c_no", c_no);
 		
-		HttpSession session = req.getSession(false);
-		session.removeAttribute("sessCustomer");
-		session.invalidate();
-		
-		resp.setContentType("text/html; charset=UTF-8");
-        String main = req.getContextPath() + "/"; // 메인으로 이동
-        resp.getWriter().printf(
-            "<script>" +
-            "if (window.opener && !window.opener.closed) {" +
-            "  window.opener.location.href='%s';" +   // 부모창을 메인으로
-            "}" +
-            "window.close();" +                        // 팝업 닫기
-            "</script>", main
-        );
-		
-
+		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/customer/deletePopup.jsp");
+		dispatcher.forward(req, resp);
 	}
 	
 	@Override

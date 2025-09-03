@@ -8,7 +8,8 @@
                 <nav>
                     <h1>글쓰기</h1>
                 </nav>
-                <form action="#">
+                <form action="/jboard/article/write.do" method="post" enctype="multipart/form-data">
+                    <input type="hidden" name="writer" readonly value="${sessUser.usid }">
                     <table >                        
                         <tr>
                             <th>제목</th>

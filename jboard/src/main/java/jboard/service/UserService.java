@@ -74,8 +74,8 @@ public enum UserService {
 	public int getUserCount(String col, String value) {
 		return dao.selectCount(col, value);
 	}
-	public UserDTO findById(String usid) {
-		return dao.select(usid);
+	public UserDTO findByPass(UserDTO dto) {
+		return dao.select(dto);
 	}
 	public List<UserDTO> findAll() {
 		return dao.selectAll();
